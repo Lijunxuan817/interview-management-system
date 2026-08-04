@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <title>登录</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<header><b>助教招聘系统</b></header>
+<main>
+  <h2>登录</h2>
+  <p>测试：zhang@stu.edu.cn / mo@edu.cn / admin@edu.cn，密码 123456</p>
+  <input id="email" placeholder="邮箱"/>
+  <input id="pwd" type="password" placeholder="密码"/>
+  <button id="go">登录</button>
+</main>
+<script src="../data/mock-data.js"></script>
+<script>
+document.getElementById("go").onclick = () => {
+  const email = document.getElementById("email").value.trim();
+  const pwd = document.getElementById("pwd").value;
+  const u = MOCK.users.find(x => x.email === email && x.password === pwd);
+  if (!u) return alert("账号或密码错");
+  if (u.role === "mo") location.href = "mo-dashboard.html";
+  else if (u.role === "admin") location.href = "admin-workload.html";
+  else location.href = "positions.html";
+};
+</script>
+</body>
+</html>

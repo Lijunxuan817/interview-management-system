@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <title>负荷总览</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<header><b>管理员</b></header>
+<main>
+  <h2>助教负荷</h2>
+  <table>
+    <tr><th>姓名</th><th>已通过数</th><th>负荷</th></tr>
+    <tbody id="tb"></tbody>
+  </table>
+</main>
+<script src="../data/mock-data.js"></script>
+<script>
+MOCK.workloads.forEach(w => {
+  document.getElementById("tb").innerHTML += `<tr><td>${w.name}</td><td>${w.accepted_count}</td><td>${w.load_level}</td></tr>`;
+});
+</script>
+</body>
+</html>

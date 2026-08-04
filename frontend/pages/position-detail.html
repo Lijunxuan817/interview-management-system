@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <title>岗位详情</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<header><b>助教招聘系统</b> <a href="positions.html">返回列表</a></header>
+<main>
+  <div id="box"></div>
+</main>
+<script src="../data/mock-data.js"></script>
+<script src="../js/app.js"></script>
+<script>
+const job = App.getPosition(App.getParam("id"));
+const box = document.getElementById("box");
+if (!job) {
+  box.innerHTML = "<p>岗位不存在</p>";
+} else {
+  box.innerHTML = `<h2>${job.title}</h2>
+    <p>课程：${job.course_name}</p>
+    <p>名额：${job.quota}</p>
+    <p>${job.requirements}</p>
+    <button onclick="alert('静态页，联调后接 API')">投递</button>`;
+}
+</script>
+</body>
+</html>
