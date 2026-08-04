@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <title>待审核</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<header><b>课程组织者</b> <a href="mo-dashboard.html">首页</a></header>
+<main>
+  <h2>待审核申请</h2>
+  <div id="list"></div>
+</main>
+<script src="../data/mock-data.js"></script>
+<script>
+MOCK.applications.filter(a => a.status === "pending").forEach(a => {
+  document.getElementById("list").innerHTML += `<div class="box">
+    ${a.applicant_name} · ${a.position_title}
+    <button onclick="alert('联调后改状态')">通过</button>
+    <button onclick="alert('联调后改状态')">拒绝</button>
+  </div>`;
+});
+</script>
+</body>
+</html>

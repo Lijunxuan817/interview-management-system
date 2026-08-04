@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <title>岗位列表</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<header>
+  <b>助教招聘系统</b>
+  <a href="../index.html">首页</a>
+  <a href="positions.html">岗位</a>
+  <a href="my-applications.html">我的申请</a>
+</header>
+<main>
+  <h2>岗位列表</h2>
+  <div id="list"></div>
+</main>
+<script src="../data/mock-data.js"></script>
+<script src="../js/app.js"></script>
+<script>
+const list = document.getElementById("list");
+App.openPositions().forEach(j => {
+  list.innerHTML += `<div class="box">
+    <h3>${j.title}</h3>
+    <p>课程：${j.course_name} · 名额：${j.quota}</p>
+    <p>${j.requirements}</p>
+    <a href="position-detail.html?id=${j.id}">详情</a>
+  </div>`;
+});
+</script>
+</body>
+</html>
