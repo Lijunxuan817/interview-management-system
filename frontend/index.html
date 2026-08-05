@@ -2,21 +2,74 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>助教招聘系统</title>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 <header>
   <b>助教招聘系统</b>
-  <a href="index.html">首页</a>
-  <a href="pages/positions.html">岗位</a>
-  <a href="pages/login.html">登录</a>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="pages/positions.html">岗位</a>
+    <a href="pages/my-applications.html">我的申请</a>
+    <a href="pages/login.html">登录</a>
+  </nav>
 </header>
 <main>
-  <h2>首页</h2>
-  <p>在线发岗、投递、审核、查进度</p>
-  <p><a href="pages/positions.html">浏览岗位</a></p>
-  <p><a href="pages/mo-dashboard.html">组织者入口</a> · <a href="pages/admin-workload.html">管理员入口</a></p>
+  <section class="intro">
+    <h2>首页</h2>
+    <p>在线发岗、投递、审核、查进度、看负荷</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h3>开放中的岗位</h3>
+      <a href="pages/positions.html">查看全部</a>
+    </div>
+    <div id="open-list" class="grid"></div>
+  </section>
+
+  <section>
+    <h3>按角色进入</h3>
+    <div class="grid roles">
+      <div class="box">
+        <p><b>申请者</b></p>
+        <p>浏览岗位 → 投递 → <a href="pages/my-applications.html">查进度</a></p>
+        <p class="muted">测试：zhang@stu.edu.cn / 123456</p>
+        <a class="btn" href="pages/login.html">登录</a>
+      </div>
+      <div class="box">
+        <p><b>审核者</b></p>
+        <p>发岗、审核申请</p>
+        <p class="muted">测试：mo@edu.cn / 123456</p>
+        <a class="btn" href="pages/mo-dashboard.html">审核者入口</a>
+      </div>
+      <div class="box">
+        <p><b>管理员</b></p>
+        <p>查看助教负荷</p>
+        <p class="muted">测试：admin@edu.cn / 123456</p>
+        <a class="btn" href="pages/admin-workload.html">管理员入口</a>
+      </div>
+    </div>
+  </section>
 </main>
+<script src="data/mock-data.js"></script>
+<script src="js/app.js"></script>
+<script>
+const openList = document.getElementById("open-list");
+const jobs = App.openPositions();
+if (!jobs.length) {
+  openList.innerHTML = '<p class="muted">暂无开放岗位</p>';
+} else {
+  jobs.forEach(j => {
+    openList.innerHTML += `<div class="box">
+      <h3>${j.title}</h3>
+      <p class="muted">课程：${j.course_name} · 名额：${j.quota}</p>
+      <a href="pages/position-detail.html?id=${j.id}">详情</a>
+    </div>`;
+  });
+}
+</script>
 </body>
 </html>

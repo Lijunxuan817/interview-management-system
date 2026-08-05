@@ -1,9 +1,96 @@
-body { font-family: sans-serif; margin: 0; padding: 0; }
-header { background: #174879; color: #fff; padding: 12px 16px; }
-header a { color: #fff; margin-right: 12px; }
-main { padding: 16px; max-width: 900px; }
-.box { border: 1px solid #ccc; padding: 12px; margin-bottom: 10px; }
-button, .btn { padding: 6px 12px; cursor: pointer; }
-table { border-collapse: collapse; width: 100%; }
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  line-height: 1.5;
+  background: #f5f7fa;
+}
+
+header {
+  background: #174879;
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+header b { margin-right: 8px; }
+
+header nav a {
+  color: #fff;
+  margin-right: 14px;
+  text-decoration: none;
+}
+
+header nav a:hover { text-decoration: underline; }
+
+main {
+  padding: 24px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main a { color: #174879; }
+
+section { margin-bottom: 28px; }
+
+.intro h2 { margin: 0 0 6px; }
+.intro p { margin: 0; color: #555; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.section-head h3 { margin: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.box {
+  background: #fff;
+  border: 1px solid #d8dee6;
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.box h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.box p { margin: 0 0 8px; }
+.box .btn { margin-top: 4px; }
+
+.muted { color: #666; font-size: 0.92rem; }
+
+button, .btn {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background: #174879;
+  color: #fff !important;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+button:hover, .btn:hover { opacity: 0.9; }
+
+table { border-collapse: collapse; width: 100%; background: #fff; }
 th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-input { padding: 6px; margin: 4px 0; display: block; width: 240px; }
+
+input {
+  padding: 6px;
+  margin: 4px 0;
+  display: block;
+  width: 240px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
