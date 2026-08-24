@@ -14,6 +14,12 @@ public class GlobalExceptionHandler {
 		return ApiResponse.fail(e.getMessage());
 	}
 
+	@ExceptionHandler(UnauthorizedException.class)
+	@ResponseStatus(HttpStatus.UNAUTHORIZED)
+	public ApiResponse<Void> handleUnauthorized(UnauthorizedException e) {
+		return ApiResponse.fail(e.getMessage());
+	}
+
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ApiResponse<Void> handleOther(Exception e) {
